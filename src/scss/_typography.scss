@@ -1,0 +1,49 @@
+$webfonts-dir: "./fonts" !default;
+
+@font-face {
+    font-family: "Grotesk";
+    font-display: fallback;
+    font-weight: 400;
+    font-style: normal;
+    src: local("Grotesk"), local("Grotesk-Regular"),
+        url("#{$webfonts-dir}/Grotesk-Regular-Web.woff2") format("woff2"),
+        url("#{$webfonts-dir}/Grotesk-Regular-Web.woff") format("woff");
+}
+@font-face {
+    font-family: "Grotesk";
+    font-display: fallback;
+    font-weight: 700;
+    font-style: normal; 
+    src: local("Grotesk Bold"), local("Grotesk-Bold"),
+        url("#{$webfonts-dir}/Grotesk-Bold-Web.woff2") format("woff2"),
+        url("#{$webfonts-dir}/Grotesk-Bold-Web.woff") format("woff");
+}
+
+* {
+  font-family: 'Grotesk';
+  font-size:16px;
+}
+
+h1 {
+    font-size:2em;
+    font-weight: normal;
+    margin: 0 0 48px 0;
+}
+
+
+h2 {
+    font-size: 1.6em;
+}
+
+h3 {
+    font-size: 1.3em;
+}
+
+p {
+    font-size: 1em;
+    line-height: 1.6;
+}
+
+p.page-ingress {
+    margin: 0 0 48px 0;
+}

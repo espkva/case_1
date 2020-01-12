@@ -1,0 +1,88 @@
+form {
+  width: 50%;
+  @include breakpoint('sm') {
+    width: 100%;
+  }
+}
+
+.input {
+  margin-bottom: 36px;
+  padding-bottom: 36px;
+  position: relative;
+
+  &__field {
+    width:100%;
+    padding: 10px 0;
+    margin: 0;
+    border: 0;
+    border-bottom: 2px solid #000;
+    transition: padding .2s linear;
+
+    &:focus {
+      outline: none; /* Not good.. */
+      border-bottom: 2px solid $color-active;
+    }
+  }
+
+  &__container {
+    display: inline-block;
+    @include breakpoint('xs') {
+      display: block;
+    }
+  }
+
+  &__validation--invalid,
+  &__validation--required {
+    /* Use absolute positioning as hack to prevent page shifting */
+    position: absolute;
+    bottom:0;
+    left:0;
+    font-size: .8em;
+    margin: 10px 0;
+    height: 20px;
+    display: none;
+    color: $color-error;
+  }
+
+  &__validation--help {
+    display: block;
+    font-size: .8em;
+    margin: 10px 0;
+  }
+
+  /* Custom select style - remove browser-defaults */
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0;
+    background:none;
+    /* SVG path stolen with no shame from https://w3c.github.io */
+    background: url("data:image/svg+xml;utf8,<svg viewBox='0 0 140 140' width='20' height='20' xmlns='http://www.w3.org/2000/svg'><g><path d='M125.89 32L80.51 80 35.126 32 20 48l60.51 64 60.508-64-15.127-16z' fill='black'/></g></svg>") no-repeat;
+    background-position: right 5px top 50%;
+  }
+}
+
+/* Display error labels */
+.input--missing-value .input__validation--required,
+.input--invalid-value .input__validation--invalid {
+  display: block;
+}
+
+/* Modify input field on error */
+.input--missing-value .input__field,
+.input--invalid-value .input__field {
+  border-bottom: 2px solid $color-error;
+  &:focus {
+    border-bottom: 2px solid $color-active;
+  }
+}
+
+// Add a more visisble outline when using keyboard to navigate form
+.tab .input__field:focus {
+  padding-left: 5px;
+  outline: 2px;
+  outline-style: solid;
+  outline-color: $color-active;
+}
+

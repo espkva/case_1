@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+.page-content {
+  max-width: 660px;
+  
+  padding: 96px 25px;
+
+  @include breakpoint('sm') {
+    padding: 96px 15px;
+  }
+}
+
+.row {
+  display: flex;
+
+  .col {
+    margin-right: 15px;
+  }
+  
+  .col--6 {
+    width: 50%;
+  }
+
+  .col:last-child {
+    margin-right:0;
+  }
+
+  @include breakpoint('sm') {
+    flex-direction: column;
+    .col--6 {
+      width: 100%;
+    }
+  }
+}

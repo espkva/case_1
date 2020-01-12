@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bilforsikring</title>
+    <link rel="stylesheet" media="all" href="public/index.css">
+  </head>
+  <body>
+    <main class="page-content">
+      <h1 class="page-title">Kjøp bilforsikring</h1>
+      <p class="page-ingress">
+        Det er fire forskjellige forsikringer å velge mellom. 
+        Ansvarsforsikring er lovpålagt om kjøretøyet er registrert og skal brukes på veien. 
+        I tillegg kan du utvide forsikringen avhengig av hvor gammel bilen din er og hvordan du bruker den.
+      </p>
+      <form id="calcPriceForm" method="POST" action="/api/">
+        <div class="input">
+          <div class="input__container">
+            <label for="plate">Bilens registreringsnummer</label>
+            <input class="input__field" type="text" id="plate" name="plate" placeholder="e.g AB 12345" required="true">
+            <label for="plate" class="input__validation--help" id="carinfo"></label>
+            <label for="plate" class="input__validation--required">Vennligst fyll inn bilens registreringsnummer</label>
+            <label for="plate" class="input__validation--invalid">Ugyldig registreringsnummer</label>
+          </div>
+        </div>
+        <div class="input">
+          <div class="input__container">
+            <label for="bonus">Din bonus</label>
+            <select class="input__field" placeholder="Velg din bonus" id="bonus" name="bonus" required=true>
+              <option value="" selected="true" disabled>Placeholder</option>
+              <option value="Min bonus 1">Min bonus 1</option>
+              <option value="Min bonus 2">Min bonus 2</option>
+            </select>
+            <label for="bonus" class="input__validation--help">Hjelpetekst</label>
+            <label for="bonus" class="input__validation--required">Vennligst velg din bonus</label>
+          </div>  
+        </div>
+        <div class="input">
+          <div class="input__container">
+            <label for="ssn">Fødselsnummer</label>
+            <input class="input__field" type="tel" placeholder="11 siffer" id="ssn" name="ssn" minlength="11" maxlength="11" required=true>
+            <label for="ssn" class="input__validation--required">Vennligst fyll inn ditt fødselsnummer</label>
+            <label for="ssn" class="input__validation--invalid">Ugyldig fødselsnummer (11 siffer)</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input col col--6">
+            <div class="input__container">
+              <label for="firstname">Fornavn</label>
+              <input class="input__field" type="text" placeholder="Ditt fornavn" id="firstname" name="firstname" required=true>
+              <label for="firstname" class="input__validation--required">Mangler fornavn</label>
+              <label for="firstname" class="input__validation--invalid">Ugyldig fornavn</label>
+            </div>
+          </div>
+          <div class="input col col--6">
+            <div class="input__container">
+              <label for="lastname">Etternavn</label>
+              <input class="input__field" type="text" placeholder="Etternavn" id="lastname" name="lastname" required="true">
+              <label for="lastname" class="input__validation--required">Mangler etternavn</label>
+              <label for="lastname" class="input__validation--invalid">Ugyldig etternavn</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="input">
+          <div class="input__container">
+            <label for="email">E-post</label>
+            <input class="input__field" type="email" required="true" id="email" name="email" placeholder="Skriv inn din e-postadresse">
+            <label for="email" class="input__validation--required">Vennligst fyll inn din e-post</label>
+            <label for="email" class="input__validation--invalid">Ugyldig e-postadresse</label>
+          </div>
+        </div>
+        <div class="spinner" id="spinner">
+          <p class="spinner__msg">Kalkulerer pris</p>
+          <div class="spinner__dots">
+            <div class="spinner__dots__dot"></div>
+            <div class="spinner__dots__dot"></div>
+            <div class="spinner__dots__dot"></div>
+          </div>
+        </div>
+        <div class="result">
+          <output class="result__output "id="priceResult"></output>
+          <p class="result__error"></p>
+        </div>
+        <div class="buttons">
+          <button class="button button--primary" type="submit">Beregn pris</button>
+          <button class="button button--secondary">Avbryt</button>
+        </div>
+      </form>
+    </main>
+    <script src="public/bundle.js"></script>
+  </body>
+</html>

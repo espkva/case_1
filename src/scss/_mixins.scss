@@ -1,0 +1,14 @@
+$breakpoint-xs: 480px;
+$breakpoint-sm: 768px;
+
+@mixin breakpoint($class) {
+  @if $class == xs {
+    @media (max-width: $breakpoint-xs) { @content; }
+  }
+  @else if $class == sm {
+    @media (max-width: $breakpoint-sm) { @content; }
+  }
+  @else {
+    @warn "Invalid breakpoint argument";
+  }
+}
