@@ -26,6 +26,11 @@ gulp.task('scss', function () {
     .pipe(gulp.dest('./public'));
 });
 
+gulp.task('build', gulp.series(
+  'scss',
+  'js'
+));
+
 gulp.task('default', function() {
   gulp.watch('src/scss/**/*.scss', gulp.series('scss'));
   gulp.watch('src/js/**/*.js', gulp.series('js'));
