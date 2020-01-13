@@ -40,7 +40,7 @@ module.exports = function FormController(elem, onSubmit) {
     parent.classList.remove(CLASSNAMES.INVALID);
     parent.classList.remove(CLASSNAMES.REQUIRED);
     
-    if (required && !value) {
+    if (required !== null && !value) {
       parent.classList.add(CLASSNAMES.REQUIRED);
       return false;
     } else if (!required && !value) {
